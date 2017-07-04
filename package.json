@@ -1,0 +1,9 @@
+{
+  "name": "chrome-remote-interface-flowtype",
+  "version": "0.0.1",
+  "description": "provide a chrome-remote-interface library type at using flowtype",
+  "main": "index.js",
+  "repository": "ssh://git@github.com/teitei-tk/chrome-remote-interface-flowtype.git",
+  "author": "teitei-tk <teitei.tk@gmail.com>",
+  "license": "MIT"
+}
