@@ -4,7 +4,7 @@
 import type { ConsoleType } from './console';
 
 /**
- * Number of milliseconds since epoch.
+ * number of milliseconds since epoch.
  */
 export type Timestamp = number;
 
@@ -108,17 +108,17 @@ export type ScriptId = string;
 /**
  * Id of an execution context.
  */
-export type ExecutionContextId = Number;
+export type ExecutionContextId = number;
 
 /**
  * Detailed information about exception (or error)
  * that was thrown during script compilation or execution.
  */
 export type ExceptionDetails = {
-  exceptionId: Number,
+  exceptionId: number,
   text: string,
-  lineNumber: Number,
-  columnNumber: Number,
+  linenumber: number,
+  columnnumber: number,
   scriptId?: ScriptId,
   url?: string,
   stackTrace?: StackTrace,
@@ -349,7 +349,7 @@ export type Runtime = {
    * Issued when unhandled exception was revoked.
    */
   exceptionRevoked(callback: (
-    reason: string, exceptionId: Number
+    reason: string, exceptionId: number
   ) => void): void;
 
   /**
