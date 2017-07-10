@@ -1,7 +1,14 @@
 // @flow
 // from: https://chromedevtools.github.io/devtools-protocol/tot/Debugger/
 
-import type { ScriptId, RemoteObject, StackTrace, ExceptionDetails, CallArgument } from './runtime';
+import type {
+  ScriptId,
+  RemoteObject,
+  StackTrace,
+  ExceptionDetails,
+  CallArgument,
+  ExecutionContextId
+} from './runtime';
 
 /**
  * BreakpointId
@@ -148,7 +155,7 @@ export type Debugger = {
    *
    * EXPERIMENTAL
    */
-  getPossibleBreakpoints(arg: {
+  getPossibleBreakpoints(arg?: {
     start: Location,
     end?: Location,
     restrictToFunction?: boolean
@@ -301,5 +308,75 @@ export type Debugger = {
    */
   setBlackboxedRanges(arg: {
     scriptId: ScriptId, positions: Array<ScriptPosition>
-  }): Promise<>
+  }): Promise<>;
+
+  /** events **/
+
+  /**
+   * Fired when virtual machine parses script.
+   * This event is also fired for all known and uncollected scripts upon enabling debugger.
+   */
+  scriptParsed(callback: (
+    scriptId: ScriptId,
+    url: string,
+    startLine: number,
+    startColumn: number,
+    endLine: number,
+    endColumn: number,
+    executionContextId: ExecutionContextId,
+    hash: string,
+    executionContextAuxData?: Object,
+    isLiveEdit?: boolean,
+    sourceMapURL?: string,
+    hasSourceURL?: string,
+    isModule?: boolean,
+    length?: number,
+    stackTrace?: StackTrace
+  ) => void): Promise<>;
+
+  /**
+   * Fired when virtual machine fails to parse the script.
+   */
+  scriptFailedToParse(callback: (
+    scriptId: ScriptId,
+    url: string,
+    startLine: number,
+    startColumn: number,
+    endLine: number,
+    endColumn: number,
+    executionContextId: ExecutionContextId,
+    hash: string,
+    executionContextAuxData?: Object,
+    isLiveEdit?: boolean,
+    sourceMapURL?: string,
+    hasSourceURL?: string,
+    isModule?: boolean,
+    length?: number,
+    stackTrace?: StackTrace
+  ) => void): Promise<>;
+
+  /**
+   * Fired when breakpoint is resolved to an actual script and location.
+   */
+  breakpointResolved(callback: (
+    breakpointId: BreakpointId,
+    location: Location
+  ) => void): Promise<>;
+
+  /**
+   * Fired when the virtual machine stopped on breakpoint or exception or any other stop criteria.
+   */
+  paused(callback: (
+    callFrames: Array<CallFrame>,
+    reason:  "XHR" | "DOM" | "EventListener" | "exception" | "assert" |
+             "debugCommand" | "promiseRejection" | "OOM" | "other" | "ambiguous",
+    data: Object,
+    hitBreakpoints?: Array<string>,
+    asyncStackTrace?: StackTrace
+  ) => void): Promise<>;
+
+  /**
+   * Fired when the virtual machine resumed execution.
+   */
+  resumed(): Promise<>;
 };
