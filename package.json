@@ -1,16 +1,26 @@
 {
   "name": "chrome-remote-interface-flowtype",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "description": "provide a chrome-remote-interface library type at using flowtype",
   "main": "src/index.js",
   "repository": "ssh://git@github.com/teitei-tk/chrome-remote-interface-flowtype.git",
+  "homepage": "https://github.com/teitei-tk/chrome-remote-interface-flowtype",
   "author": "teitei-tk <teitei.tk@gmail.com>",
-  "license": "MIT",
+  "keywords": [
+    "chrome-remote-interface",
+    "google-chrome",
+    "chrome",
+    "headless",
+    "headless-chrome",
+    "flowtype",
+    "flow"
+  ],
   "devDependencies": {
     "flow-bin": "^0.49.1"
   },
   "scripts": {
     "flow:test": "flow src/"
-  }
+  },
+  "license": "MIT"
 }
