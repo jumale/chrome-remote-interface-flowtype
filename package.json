@@ -12,6 +12,7 @@
     "flow-bin": "^0.49.1"
   },
   "scripts": {
+    "flow:test": "flow src/",
     "build": "babel src/ -d lib/",
     "prepublish": "yarn run build"
   }
