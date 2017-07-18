@@ -1,6 +1,6 @@
 {
   "name": "chrome-remote-interface-flowtype",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": false,
   "description": "provide a chrome-remote-interface library type at using flowtype",
   "main": "src/index.js",
