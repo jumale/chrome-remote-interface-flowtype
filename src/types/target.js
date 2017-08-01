@@ -120,35 +120,35 @@ export type Target = {
   /**
    * Issued when a possible inspection target is created.
    */
-  targetCreated(callback: (targetInfo: TargetInfo) => void): void;
+  targetCreated(callback: (targetInfo: TargetInfo) => any): any;
 
   /**
    * Issued when some information about a target has changed.
    * This only happens between targetCreated and targetDestroyed.
    */
-  targetInfoChanged(callback: (targetInfo: TargetInfo) => void): void;
+  targetInfoChanged(callback: (targetInfo: TargetInfo) => any): any;
 
   /**
    * Issued when a target is destroyed.
    */
-  targetDestroyed(callback: (targetId: TargetID) => void): void;
+  targetDestroyed(callback: (targetId: TargetID) => any): any;
 
   /**
    * Issued when attached to target because of auto-attach or attachToTarget command.
    */
   attachedToTarget(callback: (
     targetInfo: TargetInfo, waitingForDebugger: boolean
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Issued when detached from target for any reason (including detachFromTarget command).
    */
-  detachedFromTarget(callback: (targetId: TargetID) => void): void;
+  detachedFromTarget(callback: (targetId: TargetID) => any): any;
 
   /**
    * Notifies about new protocol message from attached target.
    */
   receivedMessageFromTarget(callback: (
     targetId: TargetID, message: string
-  ) => void): void;
+  ) => any): any;
 };

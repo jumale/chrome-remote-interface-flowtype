@@ -377,13 +377,13 @@ export type DOM = {
   /**
    * Fired when Document has been totally updated. Node ids are no longer valid.
    */
-  documentUpdated(callback: Function): void;
+  documentUpdated(callback: Function): any;
 
   /**
    * Fired when backend wants to provide client with the missing DOM structure.
    * This happens upon most of the calls requesting node ids.
    */
-  setChildNodes(callback: (parentId: NodeId, nodes: Array<Node>) => void): void;
+  setChildNodes(callback: (parentId: NodeId, nodes: Array<Node>) => any): any;
 
 
   /**
@@ -391,14 +391,14 @@ export type DOM = {
    */
   attributeModified(callback: (
     nodeId: NodeId, name: string, value: string
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Fired when Element's attribute is removed.
    */
   attributeRemoved(callback: (
     nodeId: NodeId, name: string
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Fired when Element's inline style is modified via a CSS property modification.
@@ -407,21 +407,21 @@ export type DOM = {
    */
   inlineStyleInvalidated(callback: (
     nodeIds: Array<NodeId>
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Mirrors DOMCharacterDataModified event.
    */
   characterDataModified(callback: (
     nodeId: NodeId, characterData: string
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Fired when Container's child node count has changed.
    */
   childNodeCountUpdated(callback: (
     nodeId: NodeId, childNodeCount: number
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Mirrors DOMNodeInserted event.
@@ -430,40 +430,40 @@ export type DOM = {
     parentNodeId: NodeId,
     previousNodeId: NodeId,
     node: Node
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Mirrors DOMNodeRemoved event.
    */
-  childNodeRemoved(callback: (parentNodeId: NodeId, nodeId: NodeId) => void): void;
+  childNodeRemoved(callback: (parentNodeId: NodeId, nodeId: NodeId) => any): any;
 
   /**
    * Called when shadow root is pushed into the element.
    *
    * EXPERIMENTAL
    */
-  shadowRootPushed(callback: (hostId: NodeId, root: Node) => void): void;
+  shadowRootPushed(callback: (hostId: NodeId, root: Node) => any): any;
 
   /**
    * Called when shadow root is popped from the element.
    *
    * EXPERIMENTAL
    */
-  shadowRootPopped(callback: (hostId: NodeId, root: Node) => void): void;
+  shadowRootPopped(callback: (hostId: NodeId, root: Node) => any): any;
 
   /**
    * Called when a pseudo element is added to an element.
    *
    * EXPERIMENTAL
    */
-  pseudoElementAdded(callback: (parentNodeId: NodeId, pseudoElement: Node) => void): void;
+  pseudoElementAdded(callback: (parentNodeId: NodeId, pseudoElement: Node) => any): any;
 
   /**
    * Called when a pseudo element is removed from an element.
    *
    * EXPERIMENTAL
    */
-  pseudoElementRemoved(callback: (parentNodeId: NodeId, pseudoElement: Node) => void): void;
+  pseudoElementRemoved(callback: (parentNodeId: NodeId, pseudoElement: Node) => any): any;
 
   /**
    * Called when distrubution is changed.
@@ -472,5 +472,5 @@ export type DOM = {
    */
   distributedNodesUpdated(callback: (
     insertionPointId: NodeId, distributedNodes: Array<Node>
-  ) => void): void;
+  ) => any): any;
 };

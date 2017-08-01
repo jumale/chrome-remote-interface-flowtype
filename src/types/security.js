@@ -96,7 +96,7 @@ export type Security = {
     explanations: Array<SecurityStateExplanation>,
     insecureContentStatus: InsecureContentStatus,
     summary?: string
-  ) => void): void;
+  ) => any): any;
 
   /**
    * There is a certificate error.
@@ -109,5 +109,5 @@ export type Security = {
     eventId: number,
     errorType: string,
     requestURL: string
-  ) => void): void;
+  ) => any): any;
 };

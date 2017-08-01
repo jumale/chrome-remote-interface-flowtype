@@ -456,7 +456,7 @@ export type Network = {
     requestId: RequestId,
     newPriority: ResourcePriority,
     timestamp: MonotonicTime
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Fired when page is about to send HTTP request.
@@ -472,14 +472,14 @@ export type Network = {
     redirectResponse?: Response,
     type?: ResourceType,
     frameId?: FrameId
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Fired if request ended up loading from cache.
    */
   requestServedFromCache(callback: (
     requestId: RequestId
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Fired when HTTP response is available.
@@ -491,7 +491,7 @@ export type Network = {
     type: ResourceType,
     response: Response,
     frameid: FrameId
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Fired when data chunk was received over the network.
@@ -501,7 +501,7 @@ export type Network = {
     timestamp: MonotonicTime,
     dataLength: number,
     encodedDataLength: number
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Fired when HTTP request has finished loading.
@@ -510,7 +510,7 @@ export type Network = {
     requestId: RequestId,
     timestamp: MonotonicTime,
     encodedDataLength: number
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Fired when HTTP request has failed to load.
@@ -522,7 +522,7 @@ export type Network = {
     errorText: string,
     canceled?: boolean,
     blockedReason?: BlockedReason
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Fired when WebSocket is about to initiate handshake.
@@ -534,7 +534,7 @@ export type Network = {
     timestamp: MonotonicTime,
     wallTime: TimeSinceEpoch,
     request: WebSocketRequest
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Fired when WebSocket handshake response becomes available.
@@ -545,7 +545,7 @@ export type Network = {
     requestId: RequestId,
     timestamp: MonotonicTime,
     response: WebSocketResponse
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Fired upon WebSocket creation.
@@ -556,7 +556,7 @@ export type Network = {
     requestId: RequestId,
     url: string,
     initiator?: Initiator
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Fired when WebSocket is closed.
@@ -566,7 +566,7 @@ export type Network = {
   webSocketClosed(callback: (
     requestId: RequestId,
     timestamp: MonotonicTime
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Fired when WebSocket frame is received.
@@ -577,7 +577,7 @@ export type Network = {
     requestId: RequestId,
     timestamp: MonotonicTime,
     response: WebSocketFrame
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Fired when WebSocket frame error occurs.
@@ -588,7 +588,7 @@ export type Network = {
     requestId: RequestId,
     timestamp: MonotonicTime,
     errorMessage: string,
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Fired when WebSocket frame is sent.
@@ -599,7 +599,7 @@ export type Network = {
     requestId: RequestId,
     timestamp: MonotonicTime,
     response: WebSocketFrame
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Fired when EventSource message is received.
@@ -612,7 +612,7 @@ export type Network = {
     eventName: string,
     eventId: string,
     data: string
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Details of an intercepted HTTP request,
@@ -628,5 +628,5 @@ export type Network = {
     redirectStatusCode?: number,
     redirectUrl?: string,
     authChallenge?: AuthChallenge
-  ) => void): void;
+  ) => any): any;
 };

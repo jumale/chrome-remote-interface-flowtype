@@ -323,19 +323,19 @@ export type Runtime = {
    */
   executionContextCreated(callback: (
     context: ExecutionContextId
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Issued when execution context is destroyed.
    */
   executionContextDestroyed(callback: (
     executionContextId: ExecutionContextId
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Issued when all executionContexts were cleared in browser
    */
-  executionContextsCleared(callback: Function): void;
+  executionContextsCleared(callback: Function): any;
 
   /**
    * Issued when exception was thrown and unhandled.
@@ -343,14 +343,14 @@ export type Runtime = {
   exceptionThrown(callback: (
     timestamp: Timestamp,
     exceptionDetails: ExceptionDetails
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Issued when unhandled exception was revoked.
    */
   exceptionRevoked(callback: (
     reason: string, exceptionId: number
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Issued when console API was called.
@@ -362,7 +362,7 @@ export type Runtime = {
    timestamp: Timestamp,
    stackTrace?: StackTrace,
    context?: string
- ) => void): void;
+ ) => any): any;
 
  /**
   * Issued when object should be inspected
@@ -371,5 +371,5 @@ export type Runtime = {
  inspectRequested(callback: (
    object: RemoteObject,
    hints: Object
- ) => void): void;
+ ) => any): any;
 };

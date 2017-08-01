@@ -332,7 +332,7 @@ export type Debugger = {
     isModule?: boolean,
     length?: number,
     stackTrace?: StackTrace
-  ) => void): Promise<>;
+  ) => any): Promise<>;
 
   /**
    * Fired when virtual machine fails to parse the script.
@@ -353,7 +353,7 @@ export type Debugger = {
     isModule?: boolean,
     length?: number,
     stackTrace?: StackTrace
-  ) => void): Promise<>;
+  ) => any): Promise<>;
 
   /**
    * Fired when breakpoint is resolved to an actual script and location.
@@ -361,7 +361,7 @@ export type Debugger = {
   breakpointResolved(callback: (
     breakpointId: BreakpointId,
     location: Location
-  ) => void): Promise<>;
+  ) => any): Promise<>;
 
   /**
    * Fired when the virtual machine stopped on breakpoint or exception or any other stop criteria.
@@ -373,7 +373,7 @@ export type Debugger = {
     data: Object,
     hitBreakpoints?: Array<string>,
     asyncStackTrace?: StackTrace
-  ) => void): Promise<>;
+  ) => any): Promise<>;
 
   /**
    * Fired when the virtual machine resumed execution.

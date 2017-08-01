@@ -433,14 +433,14 @@ export type Page = {
   /**
    */
   domContentEventFired(
-    callback: (timestamp: MonotonicTime) => void
-  ): void;
+    callback: (timestamp: MonotonicTime) => any
+  ): any;
 
   /**
    */
   loadEventFired(
-    callback: (timestamp: MonotonicTime) => void
-  ): void;
+    callback: (timestamp: MonotonicTime) => any
+  ): any;
 
   /**
    * Fired when frame has been attached to its parent.
@@ -449,32 +449,32 @@ export type Page = {
     frameId: FrameId,
     parentFrameId: FrameId,
     stack?: StackTrace
-  ) => void): void;
+  ) => any): any;
 
   /**
    * Fired once navigation of the frame has completed.
    * Frame is now associated with the new loader.
    */
-  frameNavigated(callback: (frame: Frame) => void): void;
+  frameNavigated(callback: (frame: Frame) => any): any;
 
   /**
    * Fired when frame has been detached from its parent.
    */
-  frameDetached(callback: (frameId: FrameId) => void): void;
+  frameDetached(callback: (frameId: FrameId) => any): any;
 
   /**
    * Fired when frame has started loading.
    *
    * EXPERIMENTAL
    */
-  frameStartedLoading(callback: (frameId: FrameId) => void): void;
+  frameStartedLoading(callback: (frameId: FrameId) => any): any;
 
   /**
    * Fired when frame has stopped loading.
    *
    * EXPERIMENTAL
    */
-  frameStoppedLoading(callback: (frameId: FrameId) => void): void;
+  frameStoppedLoading(callback: (frameId: FrameId) => any): any;
 
   /**
    * Fired when frame schedules a potential navigation.
@@ -482,34 +482,34 @@ export type Page = {
    * EXPERIMENTAL
    */
   frameScheduledNavigation(
-    callback: (frameId: FrameId, delay: number) => void
-  ): void;
+    callback: (frameId: FrameId, delay: number) => any
+  ): any;
 
   /**
    * Fired when frame no longer has a scheduled navigation.
    *
    * EXPERIMENTAL
    */
-  frameClearedScheduledNavigation(callback: (frameId: FrameId) => void): void;
+  frameClearedScheduledNavigation(callback: (frameId: FrameId) => any): any;
 
   /**
    * EXPERIMENTAL
    */
-  frameResized(callback: Function): void;
+  frameResized(callback: Function): any;
 
   /**
    * Fired when a JavaScript initiated dialog
    * (alert, confirm, prompt, or onbeforeunload) is about to open.
    */
   javascriptDialogOpening(
-    callback: (result: boolean, type: DialogType) => void
-  ): void;
+    callback: (result: boolean, type: DialogType) => any
+  ): any;
 
   /**
    * Fired when a JavaScript initiated dialog
    * (alert, confirm, prompt, or onbeforeunload) has been closed.
    */
-  javascriptDialogClosed(callback: (result: boolean) => void): void;
+  javascriptDialogClosed(callback: (result: boolean) => any): any;
 
   /**
    * Compressed image data requested by the startScreencast.
@@ -521,25 +521,25 @@ export type Page = {
       data: string,
       metadata: ScreencastFrameMetadata,
       sessionId: number
-    ) => void
-  ): void;
+    ) => any
+  ): any;
 
   /**
    * Fired when the page with currently enabled screencast was shown or hidden .
    *
    * EXPERIMENTAL
    */
-  screencastVisibilityChanged(callback: (visible: boolean) => void): void;
+  screencastVisibilityChanged(callback: (visible: boolean) => any): any;
 
   /**
    * Fired when interstitial page was shown
    */
-  interstitialShown(callback: Function): void;
+  interstitialShown(callback: Function): any;
 
   /**
    * Fired when interstitial page was hidden
    */
-  interstitialHidden(callback: Function): void;
+  interstitialHidden(callback: Function): any;
 
   /**
    * Fired when a navigation is started if navigation throttles are enabled.
@@ -551,6 +551,6 @@ export type Page = {
       isRedirect: boolean,
       navigationId: number,
       url: string
-    ) => void
-  ): void;
+    ) => any
+  ): any;
 };
