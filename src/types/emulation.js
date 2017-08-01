@@ -151,5 +151,5 @@ export type Emulation = {
   /**
    * Notification sent after the virual time budget for the current VirtualTimePolicy has run out.
    */
-  virtualTimeBudgetExpired(callback: Function): void;
+  virtualTimeBudgetExpired(callback: Function): any;
 };
